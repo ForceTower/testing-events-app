@@ -1,2 +1,3 @@
-include ':app'
+include ':app', ':toolkit'
+project(':toolkit').projectDir = new File(rootDir, 'android-toolkit/toolkit')
 rootProject.name = "Events"
