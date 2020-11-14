@@ -95,6 +95,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment"
     implementation "androidx.viewpager2:viewpager2:$view_pager"
     implementation "androidx.preference:preference-ktx:1.1.1"
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     // Architecture
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
