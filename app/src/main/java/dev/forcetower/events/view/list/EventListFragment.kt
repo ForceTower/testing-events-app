@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import dev.forcetower.events.databinding.FragmentEventListBinding
 import dev.forcetower.toolkit.components.BaseFragment
+import dev.forcetower.toolkit.lifecycle.EventObserver
 
 @AndroidEntryPoint
 class EventListFragment : BaseFragment() {
@@ -40,8 +42,20 @@ class EventListFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        viewModel.onUpdateError.observe(viewLifecycleOwner, EventObserver {
+            showSnack(getString(it))
+        })
+
+        viewModel.onEventSelected.observe(viewLifecycleOwner, EventObserver {
+            val directions = EventListFragmentDirections.actionListToDetails(it.id)
+            findNavController().navigate(directions)
+        })
+
         viewModel.getEvents().observe(viewLifecycleOwner, {
             adapter.submitList(it)
         })
+
+        viewModel.updateList()
     }
 }

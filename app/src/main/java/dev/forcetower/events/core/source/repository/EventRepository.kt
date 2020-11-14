@@ -35,8 +35,10 @@ class EventRepository @Inject constructor(
         try {
             val event = service.event(id)
             database.events().insert(event)
+            true
         } catch (error: Exception) {
             Timber.e(error, "Something wrong happened")
+            false
         }
     }
 }
