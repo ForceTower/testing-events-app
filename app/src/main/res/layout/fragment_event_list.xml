@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="actions"
+            type="dev.forcetower.events.view.list.EventListActions" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:paddingTopSystemWindowInsets="@{true}"
+            app:liftOnScroll="true"
+            app:liftOnScrollTargetViewId="@id/events_recycler"
+            style="@style/Widget.MaterialComponents.AppBarLayout.Surface">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:textFontWeight="600"
+                android:text="@string/events_title"
+                android:textSize="20sp"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textAlignment="gravity"
+                android:gravity="center"/>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onSwipeRefresh="@{() -> actions.updateList()}"
+            app:refreshing="@{actions.loading}"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/events_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingVertical="8dp"
+                android:clipToPadding="false"
+                app:paddingStartSystemWindowInsets="@{true}"
+                app:paddingEndSystemWindowInsets="@{true}"
+                app:paddingBottomSystemWindowInsets="@{true}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_event"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

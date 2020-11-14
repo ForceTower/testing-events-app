@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Events</string>
+    <string name="events_title">Eventos</string>
+    <string name="update_list_error">Erro ao buscar informações</string>
 </resources>
