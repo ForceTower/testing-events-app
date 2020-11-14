@@ -35,7 +35,7 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:onSwipeRefresh="@{() -> actions.updateList()}"
+            app:onSwipeRefresh="@{() -> actions.updateList(true)}"
             app:refreshing="@{actions.loading}"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
             <androidx.recyclerview.widget.RecyclerView

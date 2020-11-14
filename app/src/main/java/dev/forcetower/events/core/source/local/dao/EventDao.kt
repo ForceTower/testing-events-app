@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 abstract class EventDao : BaseDao<Event>() {
-    @Query("SELECT * FROM Event")
+    @Query("SELECT * FROM Event ORDER BY id ASC")
     abstract fun getEvents(): Flow<List<Event>>
 
     @Query("SELECT * FROM Event WHERE id = :id")

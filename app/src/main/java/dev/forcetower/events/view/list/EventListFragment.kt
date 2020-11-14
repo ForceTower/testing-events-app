@@ -56,6 +56,6 @@ class EventListFragment : BaseFragment() {
             adapter.submitList(it)
         })
 
-        viewModel.updateList()
+        viewModel.updateList(false)
     }
 }

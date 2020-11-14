@@ -6,6 +6,6 @@ import dev.forcetower.events.core.model.Event
 interface EventListActions {
     val loading: LiveData<Boolean>
 
-    fun updateList()
+    fun updateList(forcedUpdate: Boolean)
     fun onSelectEvent(event: Event)
 }
