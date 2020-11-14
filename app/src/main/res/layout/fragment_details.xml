@@ -8,6 +8,10 @@
         <variable
             name="event"
             type="dev.forcetower.events.core.model.Event" />
+
+        <variable
+            name="actions"
+            type="dev.forcetower.events.view.details.DetailsActions" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -30,7 +34,6 @@
                 app:title="Sobre o evento"
                 app:titleTextAppearance="@style/TextAppearance.Event.Toolbar"
                 app:menu="@menu/event_details"/>
-
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -43,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="36dp"
+                android:paddingBottom="72dp"
                 app:paddingStartSystemWindowInsets="@{true}"
                 app:paddingEndSystemWindowInsets="@{true}"
                 app:paddingBottomSystemWindowInsets="@{true}">
@@ -90,7 +93,15 @@
                     android:text="@{event.description}"
                     tools:text="@tools:sample/lorem/random"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
-
         </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:onClick="@{() -> actions.checkInEvent(event)}"
+            android:layout_gravity="bottom|end"
+            android:text="@string/btn_do_check_in"
+            app:icon="@drawable/ic_check_in_black_24dp"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

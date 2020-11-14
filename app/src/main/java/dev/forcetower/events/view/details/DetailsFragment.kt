@@ -13,6 +13,8 @@ import dev.forcetower.events.R
 import dev.forcetower.events.databinding.FragmentDetailsBinding
 import dev.forcetower.events.view.list.EventListViewModel
 import dev.forcetower.toolkit.components.BaseFragment
+import dev.forcetower.toolkit.lifecycle.EventObserver
+import timber.log.Timber
 
 @AndroidEntryPoint
 class DetailsFragment : BaseFragment() {
@@ -43,6 +45,7 @@ class DetailsFragment : BaseFragment() {
             }
         }
 
+        binding.actions = viewModel
         return view
     }
 
@@ -64,6 +67,12 @@ class DetailsFragment : BaseFragment() {
         viewModel.updateEvent(args.eventId)
         viewModel.getEvent(args.eventId).observe(viewLifecycleOwner, {
             binding.event = it
+        })
+
+        viewModel.onCheckIn.observe(viewLifecycleOwner, EventObserver {
+            Timber.d("Event received. Dispatching navigation $it")
+            val directions = DetailsFragmentDirections.actionDetailsToCheckIn(it.id)
+            findNavController().navigate(directions)
         })
     }
 }

@@ -1,5 +1,6 @@
 package dev.forcetower.events.core.source.repository
 
+import dev.forcetower.events.core.model.CheckInData
 import dev.forcetower.events.core.source.local.EventDB
 import dev.forcetower.events.core.source.remote.EventService
 import kotlinx.coroutines.Dispatchers
@@ -38,6 +39,16 @@ class EventRepository @Inject constructor(
             true
         } catch (error: Exception) {
             Timber.e(error, "Something wrong happened")
+            false
+        }
+    }
+
+    suspend fun checkIn(eventId: String, name: String, email: String) = withContext(Dispatchers.IO) {
+        try {
+            val data = CheckInData(eventId, name, email)
+            service.checkIn(data)
+            true
+        } catch (error: Exception) {
             false
         }
     }

@@ -21,15 +21,11 @@
             app:liftOnScrollTargetViewId="@id/events_recycler"
             style="@style/Widget.MaterialComponents.AppBarLayout.Surface">
 
-            <com.google.android.material.textview.MaterialTextView
+            <com.google.android.material.appbar.MaterialToolbar
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
-                android:textFontWeight="600"
-                android:text="@string/events_title"
-                android:textSize="20sp"
-                android:textColor="?android:attr/textColorPrimary"
-                android:textAlignment="gravity"
-                android:gravity="center"/>
+                android:layout_height="wrap_content"
+                app:title="@string/events_title"
+                app:titleTextAppearance="@style/TextAppearance.Event.Toolbar"/>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
