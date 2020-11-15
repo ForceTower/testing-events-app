@@ -9,7 +9,11 @@ import dev.forcetower.events.core.source.remote.EventService
 import dev.forcetower.events.core.source.repository.EventRepository
 import dev.forcetower.toolkit.lifecycle.EventObserver
 import dev.forcetower.toolkit.lifecycle.LiveEvent
-import io.mockk.*
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.coVerifyOrder
+import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
@@ -97,5 +101,4 @@ class EventDetailsViewModelTest {
         viewModel.checkInEvent(event)
         verify { checkInEventLiveDataObserver.onChanged(LiveEvent(event)) }
     }
-
 }

@@ -11,7 +11,6 @@ import dev.forcetower.events.core.validators.EmailValidator
 import dev.forcetower.events.core.validators.Validator
 import dev.forcetower.events.dagger.annotations.EmailValidators
 import java.time.LocalDateTime
-import java.time.ZonedDateTime
 import javax.inject.Singleton
 
 @Module

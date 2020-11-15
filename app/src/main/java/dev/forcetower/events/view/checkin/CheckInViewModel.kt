@@ -47,7 +47,7 @@ class CheckInViewModel @ViewModelInject constructor(
 
         val nameErrorCheck = when {
             name.isBlank() -> R.string.name_is_required
-            name.length < 3 ->  R.string.name_too_short
+            name.length < 3 -> R.string.name_too_short
             else -> null
         }
 

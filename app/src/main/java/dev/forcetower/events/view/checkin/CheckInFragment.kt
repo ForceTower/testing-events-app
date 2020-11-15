@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import dev.forcetower.events.R
@@ -32,10 +31,13 @@ class CheckInFragment : BaseSheetDialogFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.onRegistered.observe(viewLifecycleOwner, EventObserver {
-            showSnack(getString(R.string.registered_to_event))
-            dismiss()
-        })
+        viewModel.onRegistered.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                showSnack(getString(R.string.registered_to_event))
+                dismiss()
+            }
+        )
         viewModel.setEventId(args.eventId)
     }
 }

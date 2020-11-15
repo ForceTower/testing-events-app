@@ -8,7 +8,11 @@ import dev.forcetower.events.core.source.local.EventDB
 import dev.forcetower.events.core.source.remote.EventService
 import dev.forcetower.events.core.source.repository.EventRepository
 import dev.forcetower.toolkit.lifecycle.EventObserver
-import io.mockk.*
+import io.mockk.coEvery
+import io.mockk.coVerifyOrder
+import io.mockk.mockk
+import io.mockk.verify
+import io.mockk.verifyAll
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -20,7 +24,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import java.io.IOException
-import java.util.regex.Pattern
 
 @ExperimentalCoroutinesApi
 class CheckInViewModelTest {

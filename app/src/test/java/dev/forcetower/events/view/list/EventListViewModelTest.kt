@@ -2,15 +2,17 @@ package dev.forcetower.events.view.list
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import dev.forcetower.events.R
 import dev.forcetower.events.core.model.Event
 import dev.forcetower.events.core.model.EventFakeDataFactory
 import dev.forcetower.events.core.source.local.EventDB
 import dev.forcetower.events.core.source.remote.EventService
 import dev.forcetower.events.core.source.repository.EventRepository
 import dev.forcetower.toolkit.lifecycle.EventObserver
-import dev.forcetower.toolkit.lifecycle.LiveEvent
-import io.mockk.*
+import io.mockk.coEvery
+import io.mockk.coVerifyOrder
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
@@ -54,9 +56,9 @@ class EventListViewModelTest {
 
     @Test
     fun `load events from database correctly`() = runBlockingTest {
-        coEvery { database.events().getEvents() } returns flowOf(EventFakeDataFactory.EVENT_LIST)
+        every { database.events().getEvents() } returns flowOf(EventFakeDataFactory.EVENT_LIST)
         viewModel.getEvents().observeForever(eventsLiveDataObserver)
-        coVerify { eventsLiveDataObserver.onChanged(EventFakeDataFactory.EVENT_LIST) }
+        verify { eventsLiveDataObserver.onChanged(EventFakeDataFactory.EVENT_LIST) }
     }
 
     @Test
@@ -67,7 +69,7 @@ class EventListViewModelTest {
         viewModel.loading.observeForever(eventsLoadingLiveDataObserver)
         viewModel.onUpdateError.observeForever(eventsErrorLiveDataObserver)
 
-        coVerify { eventsLoadingLiveDataObserver.onChanged(false) }
+        verify { eventsLoadingLiveDataObserver.onChanged(false) }
 
         viewModel.updateList(true)
 
@@ -76,7 +78,7 @@ class EventListViewModelTest {
             repository.updateEvents()
             eventsLoadingLiveDataObserver.onChanged(false)
         }
-        verify (exactly = 0) { eventsErrorLiveDataObserver.onChanged(any()) }
+        verify(exactly = 0) { eventsErrorLiveDataObserver.onChanged(any()) }
     }
 
     @Test
@@ -88,6 +90,6 @@ class EventListViewModelTest {
         viewModel.onUpdateError.observeForever(eventsErrorLiveDataObserver)
 
         viewModel.updateList(true)
-        verify (exactly = 1) { eventsErrorLiveDataObserver.onChanged(any()) }
+        verify(exactly = 1) { eventsErrorLiveDataObserver.onChanged(any()) }
     }
 }

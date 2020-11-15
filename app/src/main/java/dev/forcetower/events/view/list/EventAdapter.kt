@@ -13,7 +13,7 @@ class EventAdapter(
     private val actions: EventListActions
 ) : ListAdapter<Event, EventAdapter.EventHolder>(DiffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventAdapter.EventHolder {
-        return EventHolder(parent.inflate(R.layout.item_event), actions);
+        return EventHolder(parent.inflate(R.layout.item_event), actions)
     }
 
     override fun onBindViewHolder(holder: EventAdapter.EventHolder, position: Int) {
@@ -28,7 +28,7 @@ class EventAdapter(
     }
 
     private object DiffCallback : DiffUtil.ItemCallback<Event>() {
-        override fun areItemsTheSame(oldItem: Event, newItem: Event) =oldItem.id == newItem.id
+        override fun areItemsTheSame(oldItem: Event, newItem: Event) = oldItem.id == newItem.id
         override fun areContentsTheSame(oldItem: Event, newItem: Event) = oldItem == newItem
     }
 }

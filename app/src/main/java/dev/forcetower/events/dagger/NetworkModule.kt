@@ -5,12 +5,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import dev.forcetower.events.BuildConfig
 import dev.forcetower.events.core.source.remote.EventService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import timber.log.Timber
-import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module

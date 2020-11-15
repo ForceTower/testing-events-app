@@ -43,18 +43,27 @@ class EventListFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel.onUpdateError.observe(viewLifecycleOwner, EventObserver {
-            showSnack(getString(it))
-        })
+        viewModel.onUpdateError.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                showSnack(getString(it))
+            }
+        )
 
-        viewModel.onEventSelected.observe(viewLifecycleOwner, EventObserver {
-            val directions = EventListFragmentDirections.actionListToDetails(it.id)
-            findNavController().navigate(directions)
-        })
+        viewModel.onEventSelected.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                val directions = EventListFragmentDirections.actionListToDetails(it.id)
+                findNavController().navigate(directions)
+            }
+        )
 
-        viewModel.getEvents().observe(viewLifecycleOwner, {
-            adapter.submitList(it)
-        })
+        viewModel.getEvents().observe(
+            viewLifecycleOwner,
+            {
+                adapter.submitList(it)
+            }
+        )
 
         viewModel.updateList(false)
     }
