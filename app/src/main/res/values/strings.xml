@@ -1,3 +1,18 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:locale="pt_BR">
     <string name="app_name">Events</string>
+    <string name="events_title">Eventos</string>
+    <string name="update_list_error">Erro ao buscar informações</string>
+    <string name="share_event">Compartilhar</string>
+    <string name="date_format">Data: %1$s</string>
+    <string name="price_format">R$ %1$.2f</string>
+    <string name="check_in_event_title">Faça check-in neste evento!</string>
+    <string name="check_in_your_name">Seu nome</string>
+    <string name="check_in_your_email">Seu email</string>
+    <string name="btn_do_check_in">Check In</string>
+    <string name="name_is_required">Nome é obrigatorio</string>
+    <string name="name_too_short">Nome muito curto</string>
+    <string name="email_is_required">Email é obrigatório</string>
+    <string name="email_invalid">Email inválido</string>
+    <string name="registered_to_event">Você fez check in :)</string>
 </resources>

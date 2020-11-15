@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/home_graph.xml"
+    app:startDestination="@id/list">
+
+    <fragment
+        android:id="@+id/list"
+        android:name="dev.forcetower.events.view.list.EventListFragment"
+        android:label="ListFragment" >
+        <action
+            android:id="@+id/action_list_to_details"
+            app:destination="@id/details" />
+    </fragment>
+    <fragment
+        android:id="@+id/details"
+        android:name="dev.forcetower.events.view.details.DetailsFragment"
+        android:label="DetailsFragment" >
+        <argument
+            android:name="eventId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_details_to_check_in"
+            app:destination="@id/check_in" />
+    </fragment>
+    <dialog
+        android:id="@+id/check_in"
+        android:name="dev.forcetower.events.view.checkin.CheckInFragment"
+        android:label="Check In" >
+        <argument
+            android:name="eventId"
+            app:argType="string" />
+    </dialog>
+</navigation>
