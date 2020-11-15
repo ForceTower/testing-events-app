@@ -1,20 +1,21 @@
 package dev.forcetower.events.view.checkin
 
-import android.util.Patterns
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.forcetower.events.R
-import dev.forcetower.events.core.model.Event
 import dev.forcetower.events.core.source.repository.EventRepository
+import dev.forcetower.events.core.validators.Validator
+import dev.forcetower.events.dagger.annotations.EmailValidators
 import dev.forcetower.toolkit.lifecycle.LiveEvent
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class CheckInViewModel @ViewModelInject constructor(
-    private val repository: EventRepository
+    private val repository: EventRepository,
+    @EmailValidators private val emailValidator: Validator<String>
 ) : ViewModel(), CheckInActions {
     private var _eventId: String? = null
 
@@ -24,10 +25,10 @@ class CheckInViewModel @ViewModelInject constructor(
     private val _loading = MutableLiveData(false)
     override val loading: LiveData<Boolean> = _loading
 
-    private val _nameError = MutableLiveData<Int?>(null)
+    private val _nameError = MutableLiveData<Int?>()
     override val nameError: LiveData<Int?> = _nameError
 
-    private val _emailError = MutableLiveData<Int?>(null)
+    private val _emailError = MutableLiveData<Int?>()
     override val emailError: LiveData<Int?> = _emailError
 
     private val _onRegistered = MutableLiveData<LiveEvent<Unit>>()
@@ -52,7 +53,7 @@ class CheckInViewModel @ViewModelInject constructor(
 
         val emailErrorCheck = when {
             email.isBlank() -> R.string.email_is_required
-            !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> R.string.email_invalid
+            !emailValidator.isValid(email) -> R.string.email_invalid
             else -> null
         }
 

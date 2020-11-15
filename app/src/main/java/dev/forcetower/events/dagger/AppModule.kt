@@ -7,6 +7,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dev.forcetower.events.core.utils.GsonUtils
+import dev.forcetower.events.core.validators.EmailValidator
+import dev.forcetower.events.core.validators.Validator
+import dev.forcetower.events.dagger.annotations.EmailValidators
 import java.time.LocalDateTime
 import java.time.ZonedDateTime
 import javax.inject.Singleton
@@ -22,4 +25,9 @@ object AppModule {
             .serializeNulls()
             .create()
     }
+
+    @Provides
+    @Singleton
+    @EmailValidators
+    fun provideEmailValidator(): Validator<String> = EmailValidator()
 }
