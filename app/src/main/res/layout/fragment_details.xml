@@ -99,6 +99,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            app:marginEndSystemWindowInsets="@{true}"
+            app:marginBottomSystemWindowInsets="@{true}"
             android:onClick="@{() -> actions.checkInEvent(event)}"
             android:layout_gravity="bottom|end"
             android:text="@string/btn_do_check_in"

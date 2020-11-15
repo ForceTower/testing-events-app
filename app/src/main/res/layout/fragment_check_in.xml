@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:paddingStartSystemWindowInsets="@{true}"
+        app:paddingEndSystemWindowInsets="@{true}">
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
