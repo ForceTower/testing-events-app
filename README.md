@@ -11,7 +11,8 @@ Você pode encontrar os APK's na aba `Actions` aqui do github, escolha a ultima 
 * Se você fez um git clone sem submodules, execute o comando `git submodule update --init` dentro da pasta do projeto clonado :)
 
 ## Submodules? Por que?
-O submodule `android-toolkit` é uma coleção de códigos uteis que eu acumulei ao longo do tempo, então, para evitar reescrita ou vários "copiar e colar" código entre projetos. Por isso, eles tem seu proprio repositório que recebe atualizações constantes.
+O submodule `android-toolkit` é uma coleção de códigos úteis que eu acumulei ao longo do tempo.
+Por isso, eles tem seu proprio repositório que recebe atualizações constantes, isso faz com que eu possa evitar reescrita ou "copiar e colar" código entre projetos.
 Contudo, como estou adicionando bastante código "desnecessário" em alguns projetos, o uso do Proguard para minimificar, obfuscar e excluir codigo não utilizado se torna quase obrigatório.
 
 ## Arquitetura
