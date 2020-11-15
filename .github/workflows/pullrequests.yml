@@ -1,0 +1,47 @@
+name: Android General Build CI
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!master'
+      - '!development'
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: 'recursive'
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Dependencies
+        run: ./gradlew dependencies
+
+      - name: Lint & JVM Checks
+        run: ./gradlew check
+
+      - name: Build Release App
+        run: ./gradlew assembleRelease
+
+      - name: Upload APK for API 19
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-minAPI19
+          path: app/build/outputs/apk/minApi19/release/app-minApi19-release-unsigned.apk
+
+      - name: Upload APK for API 21
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-minAPI21
+          path: app/build/outputs/apk/minApi21/release/app-minApi21-release-unsigned.apk
