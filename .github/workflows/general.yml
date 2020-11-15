@@ -37,9 +37,6 @@ jobs:
           EVENT_KEYSTORE_PASSWORD: ${{ secrets.EVENT_KEYSTORE_PASSWORD }}
           EVENT_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.EVENT_KEYSTORE_PRIVATE_KEY_PASSWORD }}
 
-      - name: Debugging with ssh
-        uses: lhotari/action-upterm@v1
-
       - name: Upload APK for API 19
         uses: actions/upload-artifact@v1
         with:
