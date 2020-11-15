@@ -1,6 +1,9 @@
 # Events
 Some events are spicy!
 
+## Give me the APK!
+Você pode encontrar os APK's na aba `Actions` aqui do github, escolha a ultima versão concluída com exito e baixe os artefatos lá :)
+
 ## Executar o Projeto
 * Para executar o projeto, será necessário instalar o [Android Studio 4.1.1 ou superior](https://developer.android.com/studio?authuser=1&hl=en-us)
 * Uma coisa muito importante sobre esse repositório é que ele possui submodules! Então você precisa clonar os submodules para que tudo funcione!
@@ -8,7 +11,7 @@ Some events are spicy!
 * Se você fez um git clone sem submodules, execute o comando `git submodule update --init` dentro da pasta do projeto clonado :)
 
 ## Submodules? Por que?
-O submodule `android-toolkit` é uma coleção de códigos uteis que eu acumulei ao longo do tempo, então, para evitar reescrita ou vários copia e cola de codigo entre projetos, eles tem seu proprio repositório que recebe atualizações constantes
+O submodule `android-toolkit` é uma coleção de códigos uteis que eu acumulei ao longo do tempo, então, para evitar reescrita ou vários "copiar e colar" código entre projetos. Por isso, eles tem seu proprio repositório que recebe atualizações constantes.
 Contudo, como estou adicionando bastante código "desnecessário" em alguns projetos, o uso do Proguard para minimificar, obfuscar e excluir codigo não utilizado se torna quase obrigatório.
 
 ## Arquitetura
