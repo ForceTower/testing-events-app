@@ -1,6 +1,8 @@
 # Events
 Some events are spicy!
 
+<img src="imgs/one.gif"  width="270" height="570"> <img src="imgs/two.gif"  width="270" height="570">
+
 ## Give me the APK!
 Você pode encontrar os APK's na aba `Actions` aqui do github, escolha a ultima versão concluída com exito e baixe os artefatos lá :)
 
