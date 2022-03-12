@@ -1,6 +1,5 @@
 package dev.forcetower.events.presentation.details
 
-import android.view.MenuItem
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

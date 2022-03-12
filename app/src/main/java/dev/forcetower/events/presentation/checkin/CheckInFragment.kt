@@ -37,8 +37,11 @@ class CheckInFragment : BaseBottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.onCompleted.observe(viewLifecycleOwner, EventObserver {
-            findNavController().popBackStack()
-        })
+        viewModel.onCompleted.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                findNavController().popBackStack()
+            }
+        )
     }
 }

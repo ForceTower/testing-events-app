@@ -1,7 +1,6 @@
 package dev.forcetower.events.data.network
 
 import com.google.gson.JsonDeserializer
-import dev.forcetower.events.data.local.DateConverters
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId

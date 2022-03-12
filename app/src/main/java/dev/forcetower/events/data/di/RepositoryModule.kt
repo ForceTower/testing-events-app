@@ -11,5 +11,5 @@ import dev.forcetower.events.data.repository.EventRepositoryImpl
 @InstallIn(SingletonComponent::class)
 interface RepositoryModule {
     @Binds
-    fun event(impl: EventRepositoryImpl) : EventRepository
+    fun event(impl: EventRepositoryImpl): EventRepository
 }

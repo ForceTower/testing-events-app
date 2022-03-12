@@ -43,5 +43,4 @@ class SimpleEventAdapter(
             newItem: SimpleEvent
         ) = oldItem == newItem
     }
-
 }

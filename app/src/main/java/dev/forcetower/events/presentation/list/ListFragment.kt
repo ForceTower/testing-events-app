@@ -41,17 +41,23 @@ class ListFragment : Fragment() {
             adapter.submitList(it)
         }
 
-        viewModel.onRefreshFailed.observe(viewLifecycleOwner, EventObserver {
-            Snackbar.make(
-                binding.root,
-                R.string.events_list_failed_to_refresh,
-                Snackbar.LENGTH_LONG
-            ).show()
-        })
+        viewModel.onRefreshFailed.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                Snackbar.make(
+                    binding.root,
+                    R.string.events_list_failed_to_refresh,
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+        )
 
-        viewModel.onEventSelected.observe(viewLifecycleOwner, EventObserver {
-            val directions = ListFragmentDirections.actionListToDetails(it)
-            findNavController().navigate(directions)
-        })
+        viewModel.onEventSelected.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                val directions = ListFragmentDirections.actionListToDetails(it)
+                findNavController().navigate(directions)
+            }
+        )
     }
 }

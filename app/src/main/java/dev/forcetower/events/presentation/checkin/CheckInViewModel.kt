@@ -20,7 +20,7 @@ class CheckInViewModel @AssistedInject constructor(
     @Assisted private val eventId: String,
     private val checkInUseCase: CheckInUseCase,
     private val validator: Validator<String>
-): ViewModel() {
+) : ViewModel() {
     val name = MutableLiveData("")
     val email = MutableLiveData("")
 

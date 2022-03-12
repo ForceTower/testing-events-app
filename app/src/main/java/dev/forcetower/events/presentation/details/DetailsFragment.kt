@@ -47,28 +47,40 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.onOpenMap.observe(viewLifecycleOwner, EventObserver {
-            openMaps(it.first, it.second)
-        })
+        viewModel.onOpenMap.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                openMaps(it.first, it.second)
+            }
+        )
 
-        viewModel.onShareInfo.observe(viewLifecycleOwner, EventObserver {
-            onShare(it)
-            val directions = DetailsFragmentDirections.actionDetailsToShare()
-            findNavController().navigate(directions)
-        })
+        viewModel.onShareInfo.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                onShare(it)
+                val directions = DetailsFragmentDirections.actionDetailsToShare()
+                findNavController().navigate(directions)
+            }
+        )
 
-        viewModel.onCheckIn.observe(viewLifecycleOwner, EventObserver {
-            val directions = DetailsFragmentDirections.actionDetailsToCheckIn(it)
-            findNavController().navigate(directions)
-        })
+        viewModel.onCheckIn.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                val directions = DetailsFragmentDirections.actionDetailsToCheckIn(it)
+                findNavController().navigate(directions)
+            }
+        )
 
-        viewModel.onRefreshFailed.observe(viewLifecycleOwner, EventObserver {
-            Snackbar.make(
-                binding.root,
-                R.string.events_details_failed_to_refresh,
-                Snackbar.LENGTH_LONG
-            ).show()
-        })
+        viewModel.onRefreshFailed.observe(
+            viewLifecycleOwner,
+            EventObserver {
+                Snackbar.make(
+                    binding.root,
+                    R.string.events_details_failed_to_refresh,
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+        )
 
         binding.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()

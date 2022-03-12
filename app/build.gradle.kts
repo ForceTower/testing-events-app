@@ -102,7 +102,7 @@ android {
         dataBinding = true
     }
     kapt {
-        correctErrorTypes =  true
+        correctErrorTypes = true
         javacOptions {
             option("-Xmaxerrs", 1000)
         }
