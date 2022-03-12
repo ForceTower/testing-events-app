@@ -46,7 +46,7 @@ class CheckInViewModel @AssistedInject constructor(
 
         val nameErrorCheck = when {
             name.isBlank() -> R.string.check_in_name_is_required
-            name.length < 4 -> R.string.check_in_name_too_short
+            name.trim().length < 4 -> R.string.check_in_name_too_short
             else -> null
         }
 
