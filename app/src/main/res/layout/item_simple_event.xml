@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="dev.forcetower.events.R" />
+        <variable
+            name="actions"
+            type="dev.forcetower.events.presentation.list.ListViewModel" />
+        <variable
+            name="item"
+            type="dev.forcetower.events.domain.model.SimpleEvent" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:onClick="@{() -> actions.onEventClicked(item)}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cover"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginVertical="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,2:3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:imageUrl="@{item.image}"
+            app:fallbackResource="@{R.mipmap.error_image}"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:gravity="bottom"
+            android:text="@{item.name}"
+            android:textAlignment="gravity"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="18sp"
+            android:textFontWeight="600"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cover"
+            app:layout_constraintTop_toTopOf="@+id/cover"
+            app:paddingEndSystemWindowInsets="@{true}"
+            app:paddingStartSystemWindowInsets="@{true}"
+            tools:text="@sample/events.json/data/title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/overview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@{item.description}"
+            android:textAlignment="gravity"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="12sp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            app:goneUnless="@{item.descriptionPresent}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cover"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="@sample/events.json/data/description" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

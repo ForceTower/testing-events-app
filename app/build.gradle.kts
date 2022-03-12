@@ -140,6 +140,8 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.8.1")
+
     implementation("com.jakewharton.timber:timber:5.0.1")
 
     implementation("com.google.dagger:hilt-android:2.41")
@@ -149,7 +151,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.4.2")
     kapt("androidx.room:room-compiler:2.4.2")
 
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("com.github.bumptech.glide:glide:4.13.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

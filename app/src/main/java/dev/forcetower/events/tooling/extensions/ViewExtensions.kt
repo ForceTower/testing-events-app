@@ -14,9 +14,11 @@ import androidx.core.view.marginBottom
 import androidx.core.view.marginLeft
 import androidx.core.view.marginRight
 import androidx.core.view.marginTop
+import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 fun View.inflater(): LayoutInflater = LayoutInflater.from(context)
 
@@ -102,6 +104,16 @@ fun View.requestApplyInsetsWhenAttached() {
             override fun onViewDetachedFromWindow(v: View) = Unit
         })
     }
+}
+
+@BindingAdapter("refreshing")
+fun swipeRefreshing(refreshLayout: SwipeRefreshLayout, refreshing: Boolean) {
+    refreshLayout.isRefreshing = refreshing
+}
+
+@BindingAdapter("onSwipeRefresh")
+fun onSwipeRefresh(view: SwipeRefreshLayout, function: SwipeRefreshLayout.OnRefreshListener) {
+    view.setOnRefreshListener(function)
 }
 
 data class InitialPadding(

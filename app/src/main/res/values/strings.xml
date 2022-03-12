@@ -2,4 +2,13 @@
     tools:locale="pt_BR">
     <string name="app_name">Eventos</string>
     <string name="events_list_title">Eventos</string>
+    <string name="events_list_failed_to_refresh">Falha ao carregar informações</string>
+    <string name="events_list_error_title">Oops!</string>
+    <string name="events_list_error_subtitle">Something went wrong on your request.</string>
+    <string name="events_list_error_btn_text">Try again</string>
+    <string name="events_details">Sobre o evento</string>
+    <string name="share_event">Compartilhar</string>
+    <string name="date_format">Data: %1$s</string>
+    <string name="price_format">R$ %1$.2f</string>
+    <string name="check_in_event_title">Faça check-in neste evento!</string>
 </resources>
