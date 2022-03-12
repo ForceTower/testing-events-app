@@ -8,9 +8,7 @@ fun Event.toDomainSimple() = SimpleEvent(
     id,
     title,
     description,
-    image,
-    image != null,
-    description.isNotBlank()
+    image
 )
 
 fun Event.toDomainComplete() = CompleteEvent(

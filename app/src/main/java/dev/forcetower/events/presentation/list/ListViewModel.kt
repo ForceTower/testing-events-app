@@ -36,8 +36,6 @@ class ListViewModel @Inject constructor(
         list.isEmpty() && !loading
     }.asLiveData()
 
-    init { refresh() }
-
     fun refresh() {
         if (_refreshing.value == true) return
         viewModelScope.launch {

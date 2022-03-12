@@ -37,6 +37,8 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.refresh()
+
         viewModel.events.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
