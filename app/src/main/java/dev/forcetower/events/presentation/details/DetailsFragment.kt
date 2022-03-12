@@ -53,6 +53,8 @@ class DetailsFragment : Fragment() {
 
         viewModel.onShareInfo.observe(viewLifecycleOwner, EventObserver {
             onShare(it)
+            val directions = DetailsFragmentDirections.actionDetailsToShare()
+            findNavController().navigate(directions)
         })
 
         viewModel.onCheckIn.observe(viewLifecycleOwner, EventObserver {

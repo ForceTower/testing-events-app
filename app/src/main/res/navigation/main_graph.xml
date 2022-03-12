@@ -26,15 +26,23 @@
         <action
             android:id="@+id/action_details_to_check_in"
             app:destination="@id/check_in" />
+        <action
+            android:id="@+id/action_details_to_share"
+            app:destination="@id/share" />
     </fragment>
 
     <dialog
         android:id="@+id/check_in"
         android:name="dev.forcetower.events.presentation.checkin.CheckInFragment"
-        android:label="CheckIn"
+        android:label="@string/check_in_event"
         tools:layout="@layout/fragment_check_in">
         <argument
             android:name="id"
             app:argType="string" />
     </dialog>
+    <dialog
+        android:id="@+id/share"
+        android:name="dev.forcetower.events.presentation.share.ShareFragment"
+        android:label="@string/event_shared"
+        tools:layout="@layout/fragment_share"/>
 </navigation>

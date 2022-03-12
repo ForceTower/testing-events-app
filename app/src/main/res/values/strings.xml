@@ -12,6 +12,7 @@
     <string name="price_format">R$ %1$.2f</string>
     <string name="check_in_event_title">Faça check-in neste evento!</string>
     <string name="btn_do_check_in">Check In</string>
+    <string name="check_in_event">Check In</string>
     <string name="events_details_share">Compartilhar</string>
     <string name="events_details_show_map">Show on map</string>
     <string name="events_details_failed_to_refresh">Falha ao atualizar informações</string>
@@ -26,4 +27,7 @@
     <string name="check_in_error_subtitle">Não conseguimos fazer check-in neste momento.</string>
     <string name="check_in_error_btn_text">Tentar novamente</string>
     <string name="check_in_completed_title">Você fez check-in no evento! Que demais!</string>
+    <string name="share_event_content_title">Os detalhes do evento foram copiados para a Área de Transferência</string>
+    <string name="share_event_btn_action">Que demais!</string>
+    <string name="event_shared">Evento compartilhado!</string>
 </resources>

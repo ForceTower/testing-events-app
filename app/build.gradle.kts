@@ -140,8 +140,6 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    debugImplementation("com.squareup.leakcanary:leakcanary-android:2.8.1")
-
     implementation("com.jakewharton.timber:timber:5.0.1")
 
     implementation("com.google.dagger:hilt-android:2.41")

@@ -1,10 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.Events" parent="Theme.Material3.DynamicColors.DayNight">
-        <!-- Primary brand color. -->
+        <!-- The color from your wallpaper, or maybe not. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="fontFamily">@font/product_sans</item>
         <item name="android:fontFamily">@font/product_sans</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Events.BottomSheetDialog</item>
+    </style>
+
+    <style name="ThemeOverlay.Events.BottomSheetDialog" parent="@style/ThemeOverlay.Material3.BottomSheetDialog">
+        <!-- MD3 overrides dialog buttons to be always with dialog theme. This reverts the change -->
+        <item name="materialButtonStyle">@style/Widget.Material3.Button</item>
     </style>
 
     <style name="Theme.Events.Home" />
