@@ -3,8 +3,9 @@
         <!-- Primary brand color. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
         <item name="fontFamily">@font/google_sans</item>
         <item name="android:fontFamily">@font/google_sans</item>
     </style>
+
+    <style name="Theme.Events.Home" />
 </resources>

@@ -12,13 +12,12 @@
         android:theme="@style/Theme.Events">
         <activity
             android:name=".presentation.MainActivity"
+            android:theme="@style/Theme.Events.Home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
