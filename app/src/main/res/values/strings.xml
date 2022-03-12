@@ -4,8 +4,8 @@
     <string name="events_list_title">Eventos</string>
     <string name="events_list_failed_to_refresh">Falha ao carregar informações</string>
     <string name="events_list_error_title">Oops!</string>
-    <string name="events_list_error_subtitle">Something went wrong on your request.</string>
-    <string name="events_list_error_btn_text">Try again</string>
+    <string name="events_list_error_subtitle">Algo deu errado com a sua requisição.</string>
+    <string name="events_list_error_btn_text">Tentar novamente</string>
     <string name="events_details">Sobre o evento</string>
     <string name="share_event">Compartilhar</string>
     <string name="date_format">Data: %1$s</string>
@@ -16,4 +16,14 @@
     <string name="events_details_show_map">Show on map</string>
     <string name="events_details_failed_to_refresh">Falha ao atualizar informações</string>
     <string name="events_details_failed_to_open_maps_or_browser">Erro ao abrir navegador ou maps :(</string>
+    <string name="event_check_in_your_name">Seu nome</string>
+    <string name="event_check_in_your_email">Seu email</string>
+    <string name="check_in_name_is_required">Insira um nome</string>
+    <string name="check_in_name_too_short">Nome muito pequeno</string>
+    <string name="check_in_email_is_required">Insira seu email</string>
+    <string name="check_in_email_invalid">Email inválido</string>
+    <string name="check_in_error_title">Oops!</string>
+    <string name="check_in_error_subtitle">Não conseguimos fazer check-in neste momento.</string>
+    <string name="check_in_error_btn_text">Tentar novamente</string>
+    <string name="check_in_completed_title">Você fez check-in no evento! Que demais!</string>
 </resources>

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -54,6 +55,11 @@ class DetailsFragment : Fragment() {
             onShare(it)
         })
 
+        viewModel.onCheckIn.observe(viewLifecycleOwner, EventObserver {
+            val directions = DetailsFragmentDirections.actionDetailsToCheckIn(it)
+            findNavController().navigate(directions)
+        })
+
         viewModel.onRefreshFailed.observe(viewLifecycleOwner, EventObserver {
             Snackbar.make(
                 binding.root,
@@ -61,6 +67,10 @@ class DetailsFragment : Fragment() {
                 Snackbar.LENGTH_LONG
             ).show()
         })
+
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun onShare(content: String) {

@@ -26,6 +26,9 @@ class DetailsViewModel @AssistedInject constructor(
 ) : ViewModel() {
     val event = getEventUseCase(eventId).asLiveData()
 
+    private val _onCheckIn = MutableLiveData<Event<String>>()
+    val onCheckIn: LiveData<Event<String>> = _onCheckIn
+
     private val _onRefreshFailed = MutableLiveData<Event<Unit>>()
     val onRefreshFailed: LiveData<Event<Unit>> = _onRefreshFailed
 
@@ -72,6 +75,7 @@ class DetailsViewModel @AssistedInject constructor(
 
     fun checkInEvent(event: CompleteEvent?) {
         event ?: return
+        _onCheckIn.value = Event(event.id)
     }
 }
 

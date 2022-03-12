@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="actions"
+            type="dev.forcetower.events.presentation.checkin.CheckInViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_gravity="bottom"
+        android:theme="@style/Theme.Events.Home">
+        <!-- Filling Data -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:orientation="vertical"
+            app:invisibleUnless="@{actions.filling}"
+            app:paddingStartSystemWindowInsets="@{true}"
+            app:paddingEndSystemWindowInsets="@{true}">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check_in_event_title"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="18sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:textHelperError="@{actions.nameError}"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/event_check_in_your_name"
+                    android:text="@={actions.name}"
+                    android:inputType="textPersonName"
+                    android:enabled="@{!actions.loading}"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:textHelperError="@{actions.emailError}"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/event_check_in_your_email"
+                    android:inputType="textEmailAddress"
+                    android:text="@={actions.email}"
+                    android:enabled="@{!actions.loading}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/btn_do_check_in"
+                android:textAllCaps="false"
+                android:letterSpacing="0.01"
+                android:enabled="@{!actions.loading}"
+                android:onClick="@{() -> actions.checkIn()}"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!-- Loading -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:invisibleUnless="@{actions.loading}"
+            tools:visibility="invisible"/>
+
+        <!-- Error -->
+        <dev.forcetower.events.widget.error.ErrorView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorTitle="@string/check_in_error_title"
+            app:errorSubtitle="@string/check_in_error_subtitle"
+            app:errorButtonText="@string/check_in_error_btn_text"
+            app:errorOnTryAgain="@{() -> actions.checkInAgain()}"
+            app:invisibleUnless="@{actions.error}"
+            tools:visibility="invisible"/>
+
+        <!-- Completed -->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:invisibleUnless="@{actions.completed}"
+            tools:visibility="invisible">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="120dp"
+                android:layout_height="80dp"
+                android:src="@drawable/illustration_check_in_complete"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/check_in_completed_title"
+                android:textAlignment="gravity"
+                android:gravity="center"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

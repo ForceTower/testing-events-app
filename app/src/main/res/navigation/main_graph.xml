@@ -23,5 +23,18 @@
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_details_to_check_in"
+            app:destination="@id/check_in" />
     </fragment>
+
+    <dialog
+        android:id="@+id/check_in"
+        android:name="dev.forcetower.events.presentation.checkin.CheckInFragment"
+        android:label="CheckIn"
+        tools:layout="@layout/fragment_check_in">
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </dialog>
 </navigation>
