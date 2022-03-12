@@ -2,7 +2,9 @@ package dev.forcetower.events.data.network
 
 import com.google.gson.JsonDeserializer
 import dev.forcetower.events.data.local.DateConverters
+import java.time.Instant
 import java.time.LocalDateTime
+import java.time.ZoneId
 
 object GsonSerializers {
     @JvmStatic
@@ -10,7 +12,7 @@ object GsonSerializers {
         val jsonPrimitive = json.asJsonPrimitive
         try {
             val long = jsonPrimitive.asLong
-            DateConverters.longToLocalDateTime(long)
+            LocalDateTime.ofInstant(Instant.ofEpochMilli(long), ZoneId.of("UTC"))
         } catch (e: Throwable) {
             null
         }

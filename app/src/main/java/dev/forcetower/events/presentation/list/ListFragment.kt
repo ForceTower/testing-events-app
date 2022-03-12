@@ -16,7 +16,7 @@ import dev.forcetower.events.tooling.lifecycle.EventObserver
 @AndroidEntryPoint
 class ListFragment : Fragment() {
     private val viewModel by viewModels<ListViewModel>()
-    private val adapter by lazy { SimpleEventAdapter(viewModel) }
+    private lateinit var adapter: SimpleEventAdapter
     private lateinit var binding: FragmentListBinding
 
     override fun onCreateView(
@@ -24,6 +24,7 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        adapter = SimpleEventAdapter(viewModel)
         return FragmentListBinding.inflate(inflater, container, false).also {
             binding = it
             binding.apply {
@@ -49,7 +50,8 @@ class ListFragment : Fragment() {
         })
 
         viewModel.onEventSelected.observe(viewLifecycleOwner, EventObserver {
-
+            val directions = ListFragmentDirections.actionListToDetails(it)
+            findNavController().navigate(directions)
         })
     }
 }

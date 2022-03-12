@@ -5,10 +5,6 @@
     <data>
         <import type="dev.forcetower.events.R" />
         <variable
-            name="item"
-            type="dev.forcetower.events.domain.model.CompleteEvent" />
-
-        <variable
             name="actions"
             type="dev.forcetower.events.presentation.details.DetailsViewModel" />
     </data>
@@ -17,12 +13,19 @@
         android:layout_height="match_parent">
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:paddingStartSystemWindowInsets="@{true}"
+            app:paddingEndSystemWindowInsets="@{true}"
+            app:paddingTopSystemWindowInsets="@{true}">
             <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="@string/events_details"
-                app:titleCentered="true"/>
+                app:titleCentered="true"
+                app:navigationIcon="?android:attr/homeAsUpIndicator"
+                app:menu="@menu/event_details_options"
+                app:onMenuItemClickListener="@{(item) -> actions.onMenuItemClicked(item.itemId, actions.event)}"/>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -34,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="72dp"
+                android:paddingBottom="96dp"
                 app:paddingStartSystemWindowInsets="@{true}"
                 app:paddingEndSystemWindowInsets="@{true}"
                 app:paddingBottomSystemWindowInsets="@{true}">
@@ -43,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="240dp"
                     android:scaleType="centerCrop"
-                    app:imageUrl="@{item.image}"
+                    app:imageUrl="@{actions.event.image}"
                     app:fallbackResource="@{R.mipmap.error_image}"
                     tools:src="@tools:sample/backgrounds/scenic"/>
 
@@ -52,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginHorizontal="16dp"
-                    android:text="@{item.title}"
+                    android:text="@{actions.event.title}"
                     android:textSize="20sp"
                     android:textColor="?attr/colorPrimary"
                     tools:text="@sample/events.json/data/title"/>
@@ -62,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginHorizontal="16dp"
-                    app:eventDate="@{item.date}"
+                    app:eventDate="@{actions.event.date}"
                     tools:text="Sat, 23 de jan de 2030, 14:11"/>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -70,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_marginHorizontal="16dp"
-                    android:text="@{@string/price_format(item.price)}"
+                    android:text="@{@string/price_format(actions.event.price)}"
                     tools:text="R$ 16,99"/>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -78,9 +81,20 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginHorizontal="16dp"
-                    android:text="@{item.description}"
-                    tools:text="@tools:sample/lorem/random"/>
+                    android:text="@{actions.event.description}"
+                    tools:text="@sample/events.json/data/description"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:onClick="@{() -> actions.checkInEvent(actions.event)}"
+            android:layout_gravity="bottom|end"
+            android:text="@string/btn_do_check_in"
+            app:icon="@drawable/ic_check_in_black_24dp"
+            app:marginEndSystemWindowInsets="@{true}"
+            app:marginBottomSystemWindowInsets="@{true}"/>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
