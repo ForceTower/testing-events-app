@@ -37,9 +37,7 @@ class DetailsViewModel @AssistedInject constructor(
     private val _onOpenMap = MutableLiveData<Event<Pair<Double, Double>>>()
     val onOpenMap: LiveData<Event<Pair<Double, Double>>> = _onOpenMap
 
-    init { refresh() }
-
-    private fun refresh() {
+    fun refresh() {
         viewModelScope.launch {
             try {
                 refreshUseCase(eventId)

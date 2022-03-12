@@ -47,6 +47,7 @@ class ListViewModelUnitTest : BaseUnitTest() {
         showErrorObserver = mockk(relaxed = true)
 
         initialList = EventSimpleMockFactory.createList()
+        coEvery { refreshUseCase() } returns Unit
         coEvery { getEventsUseCase() } returns flowOf(initialList)
 
         viewModel = ListViewModel(getEventsUseCase, refreshUseCase)

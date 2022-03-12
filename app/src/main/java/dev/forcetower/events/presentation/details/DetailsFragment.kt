@@ -47,6 +47,8 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.refresh()
+
         viewModel.onOpenMap.observe(
             viewLifecycleOwner,
             EventObserver {
