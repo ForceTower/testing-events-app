@@ -110,6 +110,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/check_in_completed_title"
+                android:textColor="?attr/colorOnPrimaryContainer"
                 android:textAlignment="gravity"
                 android:gravity="center"/>
         </androidx.appcompat.widget.LinearLayoutCompat>

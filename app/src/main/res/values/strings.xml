@@ -14,7 +14,7 @@
     <string name="btn_do_check_in">Check In</string>
     <string name="check_in_event">Check In</string>
     <string name="events_details_share">Compartilhar</string>
-    <string name="events_details_show_map">Show on map</string>
+    <string name="events_details_show_map">Mostrar no mapa</string>
     <string name="events_details_failed_to_refresh">Falha ao atualizar informações</string>
     <string name="events_details_failed_to_open_maps_or_browser">Erro ao abrir navegador ou maps :(</string>
     <string name="event_check_in_your_name">Seu nome</string>
