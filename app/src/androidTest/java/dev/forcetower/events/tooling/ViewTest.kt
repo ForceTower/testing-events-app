@@ -96,22 +96,6 @@ fun waitForItemCount(
     }
 }
 
-fun firstChildOf(parentMatcher: Matcher<View>): Matcher<View> {
-    return object : TypeSafeMatcher<View>() {
-        override fun describeTo(description: Description) {
-            description.appendText("with first child view of type parentMatcher")
-        }
-
-        override fun matchesSafely(view: View): Boolean {
-            if (view.parent !is ViewGroup) {
-                return parentMatcher.matches(view.parent)
-            }
-            val group = view.parent as ViewGroup
-            return parentMatcher.matches(view.parent) && group.getChildAt(0) == view
-        }
-    }
-}
-
 fun isTextMaxLines(maxLines: Int): TypeSafeMatcher<View> {
     return object : TypeSafeMatcher<View>() {
         override fun describeTo(description: Description?) {
