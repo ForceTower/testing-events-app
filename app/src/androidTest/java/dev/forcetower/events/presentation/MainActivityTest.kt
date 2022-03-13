@@ -3,6 +3,7 @@ package dev.forcetower.events.presentation
 import android.content.ClipboardManager
 import android.content.Intent
 import android.net.Uri
+import android.os.Looper
 import androidx.core.content.getSystemService
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
@@ -109,7 +110,6 @@ class MainActivityTest {
             .perform(waitForItemCount(30, 1000L))
             .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(10))
             .check(matches(atPositionOnView(10, withText(elements[10].title), R.id.title)))
-            .check(matches(atPositionOnView(10, isTextMaxLines(3), R.id.overview)))
     }
 
     @Test
@@ -254,10 +254,7 @@ class MainActivityTest {
             .perform(click())
 
         intended(
-            anyOf(
-                allOf(hasAction(Intent.ACTION_VIEW), hasData(Uri.parse("geo:${subject.latitude},${subject.longitude}"))),
-                allOf(hasAction(Intent.ACTION_VIEW), hasData(Uri.parse("http://maps.google.com/maps?daddr=${subject.latitude},${subject.longitude}"))),
-            )
+            allOf(hasAction(Intent.ACTION_VIEW), hasData(Uri.parse("geo:${subject.latitude},${subject.longitude}")))
         )
     }
 
@@ -279,6 +276,7 @@ class MainActivityTest {
         onView(withId(R.id.item_share))
             .perform(click())
 
+        Looper.prepare()
         val manager = InstrumentationRegistry.getInstrumentation().targetContext.getSystemService<ClipboardManager>()
         val item = manager?.primaryClip?.getItemAt(0)?.text
         val expected = """
