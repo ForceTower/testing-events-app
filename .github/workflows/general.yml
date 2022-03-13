@@ -31,9 +31,9 @@ jobs:
       - name: Build Release App
         run: ./gradlew assembleRelease
         env:
-          EVENT_KEYSTORE_ALIAS: ${{ secrets.EVENT_KEYSTORE_ALIAS }}
-          EVENT_KEYSTORE_PASSWORD: ${{ secrets.EVENT_KEYSTORE_PASSWORD }}
-          EVENT_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.EVENT_KEYSTORE_PRIVATE_KEY_PASSWORD }}
+          KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
 
       - name: Upload APK for API 19
         uses: actions/upload-artifact@v1

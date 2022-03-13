@@ -45,15 +45,15 @@ android {
 
     signingConfigs {
         create("release") {
-            var password = System.getenv("EVENT_KEYSTORE_PASSWORD")
+            var password = System.getenv("KEYSTORE_PASSWORD")
             if (password == null)
                 password = "android"
 
-            var alias = System.getenv("EVENT_KEYSTORE_ALIAS")
+            var alias = System.getenv("KEYSTORE_ALIAS")
             if (alias == null)
                 alias = "androiddebugkey"
 
-            var keyPass = System.getenv("EVENT_KEYSTORE_PRIVATE_KEY_PASSWORD")
+            var keyPass = System.getenv("KEYSTORE_KEY_PASSWORD")
             if (keyPass == null)
                 keyPass = "android"
 
@@ -79,6 +79,10 @@ android {
         }
     }
 
+    lint {
+        checkReleaseBuilds = false
+    }
+
     buildTypes {
         getByName("release") {
             signingConfig = signingConfigs.getByName("release")
@@ -94,9 +98,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
         isCoreLibraryDesugaringEnabled = true
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
     }
     buildFeatures {
         dataBinding = true
