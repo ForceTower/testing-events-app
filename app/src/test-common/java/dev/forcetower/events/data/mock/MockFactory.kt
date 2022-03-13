@@ -1,8 +1,8 @@
-package dev.forcetower.events.tooling
+package dev.forcetower.events.data.mock
 
 interface MockFactory<T> {
     fun create(): T
     fun createList(size: Int = 10): List<T> {
-        return (0..size).map { create() }
+        return (1..size).map { create() }
     }
 }

@@ -50,6 +50,7 @@
                     tools:listitem="@layout/item_simple_event"/>
 
                 <dev.forcetower.events.widget.error.ErrorView
+                    android:id="@+id/list_error_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:goneUnless="@{actions.showError}"

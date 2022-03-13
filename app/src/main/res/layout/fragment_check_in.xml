@@ -10,6 +10,7 @@
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/check_in_content_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_gravity="bottom">
@@ -31,12 +32,14 @@
                 android:textSize="18sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_check_in_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:textHelperError="@{actions.nameError}"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_check_in_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/event_check_in_your_name"
@@ -46,12 +49,14 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_check_in_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:textHelperError="@{actions.emailError}"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_check_in_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/event_check_in_your_email"
@@ -61,6 +66,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_do_check_in"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="16dp"
@@ -72,15 +78,17 @@
 
         <!-- Loading -->
         <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_check_in_loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:indeterminate="true"
             app:invisibleUnless="@{actions.loading}"
-            tools:visibility="invisible"/>
+            tools:visibility="visible"/>
 
         <!-- Error -->
         <dev.forcetower.events.widget.error.ErrorView
+            android:id="@+id/error_check_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorTitle="@string/check_in_error_title"
@@ -92,6 +100,7 @@
 
         <!-- Completed -->
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/container_check_in_success"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

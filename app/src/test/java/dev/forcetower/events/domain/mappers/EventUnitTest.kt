@@ -1,6 +1,6 @@
 package dev.forcetower.events.domain.mappers
 
-import dev.forcetower.events.data.model.EventMockFactory
+import dev.forcetower.events.data.mock.EventMockFactory
 import dev.forcetower.events.domain.model.CompleteEvent
 import dev.forcetower.events.domain.model.SimpleEvent
 import org.junit.Assert.assertEquals

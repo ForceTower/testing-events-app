@@ -1,6 +1,6 @@
 package dev.forcetower.events.domain.usecase
 
-import dev.forcetower.events.data.model.EventMockFactory
+import dev.forcetower.events.data.mock.EventMockFactory
 import dev.forcetower.events.domain.CommonUseCaseUnitTest
 import dev.forcetower.events.domain.mappers.toDomainComplete
 import io.mockk.every

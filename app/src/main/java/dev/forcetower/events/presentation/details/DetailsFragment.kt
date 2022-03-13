@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.forcetower.events.R
 import dev.forcetower.events.databinding.FragmentDetailsBinding
 import dev.forcetower.events.tooling.lifecycle.EventObserver
+import timber.log.Timber
 import javax.inject.Inject
 
 private const val CLIPBOARD_SHARE_LABEL = "events:share:details"
@@ -76,6 +78,7 @@ class DetailsFragment : Fragment() {
         viewModel.onRefreshFailed.observe(
             viewLifecycleOwner,
             EventObserver {
+                Log.d("TAGGED","Triggered...")
                 Snackbar.make(
                     binding.root,
                     R.string.events_details_failed_to_refresh,

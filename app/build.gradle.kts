@@ -24,7 +24,7 @@ android {
             }
         }
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "dev.forcetower.events.EventAppRunner"
     }
     flavorDimensions += "api"
     productFlavors {
@@ -107,6 +107,10 @@ android {
             option("-Xmaxerrs", 1000)
         }
     }
+    sourceSets {
+        getByName("test").java.srcDirs("src/test-common/java")
+        getByName("androidTest").java.srcDirs("src/test-common/java")
+    }
 }
 
 val minApi21Implementation by configurations
@@ -155,7 +159,18 @@ dependencies {
     testImplementation("androidx.arch.core:core-testing:2.1.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
     testImplementation("io.mockk:mockk:1.12.2")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.9")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
+
+
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.4.0")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.4.0")
+
+    androidTestImplementation("androidx.test:core:1.4.0")
+    androidTestImplementation("androidx.test:runner:1.4.0")
+    androidTestImplementation("androidx.test:rules:1.4.0")
+
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.41")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.41")
 }

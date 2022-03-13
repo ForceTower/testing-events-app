@@ -1,7 +1,6 @@
 package dev.forcetower.events.domain.model
 
-import dev.forcetower.events.tooling.MockFactory
-import java.time.LocalDateTime
+import dev.forcetower.events.data.mock.MockFactory
 import java.util.UUID
 
 object EventSimpleMockFactory : MockFactory<SimpleEvent> {

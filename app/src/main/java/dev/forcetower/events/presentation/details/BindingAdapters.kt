@@ -9,7 +9,6 @@ import java.time.format.FormatStyle
 
 @BindingAdapter("eventDate")
 fun TextView.eventDate(date: LocalDateTime?) {
-    Timber.d("Date: $date")
     text = date?.let {
         DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.SHORT).format(it)
     }
