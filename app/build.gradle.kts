@@ -57,7 +57,7 @@ android {
             if (keyPass == null)
                 keyPass = "android"
 
-            var signFile = rootProject.file("signing.jks")
+            var signFile = rootProject.file("signature.jks")
             if (!signFile.exists())
                 signFile = rootProject.file("debug.keystore")
 

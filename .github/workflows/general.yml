@@ -20,7 +20,7 @@ jobs:
           java-version: 11
 
       - name: Decode Signature
-        run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.SIGNATURE_PASSWORD }}" --output sign.jks signature.jks.gpg
+        run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.SIGNATURE_PASSWORD }}" --output signature.jks signature.jks.gpg
 
       - name: Dependencies
         run: ./gradlew dependencies
