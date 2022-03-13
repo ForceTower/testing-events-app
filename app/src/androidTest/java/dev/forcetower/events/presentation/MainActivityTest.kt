@@ -31,11 +31,9 @@ import dev.forcetower.events.R
 import dev.forcetower.events.data.network.EventService
 import dev.forcetower.events.data.network.FakeEventService
 import dev.forcetower.events.tooling.atPositionOnView
-import dev.forcetower.events.tooling.isTextMaxLines
 import dev.forcetower.events.tooling.waitForId
 import dev.forcetower.events.tooling.waitForItemCount
 import org.hamcrest.Matchers.allOf
-import org.hamcrest.Matchers.anyOf
 import org.hamcrest.Matchers.not
 import org.junit.After
 import org.junit.Assert.assertEquals
