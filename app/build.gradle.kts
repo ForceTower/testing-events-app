@@ -45,15 +45,15 @@ android {
 
     signingConfigs {
         create("release") {
-            var password = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+            var password = System.getenv("EVENT_KEYSTORE_PASSWORD")
             if (password == null)
                 password = "android"
 
-            var alias = System.getenv("ANDROID_KEYSTORE_ALIAS")
+            var alias = System.getenv("EVENT_KEYSTORE_ALIAS")
             if (alias == null)
                 alias = "androiddebugkey"
 
-            var keyPass = System.getenv("ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
+            var keyPass = System.getenv("EVENT_KEYSTORE_PRIVATE_KEY_PASSWORD")
             if (keyPass == null)
                 keyPass = "android"
 

@@ -1,0 +1,48 @@
+name: Android General Build CI
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Decode Signature
+        run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.SIGNATURE_PASSWORD }}" --output sign.jks signature.jks.gpg
+
+      - name: Dependencies
+        run: ./gradlew dependencies
+
+      - name: Lint & JVM Checks
+        run: ./gradlew check
+
+      - name: Build Release App
+        run: ./gradlew assembleRelease
+        env:
+          EVENT_KEYSTORE_ALIAS: ${{ secrets.EVENT_KEYSTORE_ALIAS }}
+          EVENT_KEYSTORE_PASSWORD: ${{ secrets.EVENT_KEYSTORE_PASSWORD }}
+          EVENT_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.EVENT_KEYSTORE_PRIVATE_KEY_PASSWORD }}
+
+      - name: Upload APK for API 19
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-minAPI19
+          path: app/build/outputs/apk/minApi19/release/app-minApi19-release.apk
+
+      - name: Upload APK for API 21
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-minAPI21
+          path: app/build/outputs/apk/minApi21/release/app-minApi21-release.apk
