@@ -161,7 +161,6 @@ dependencies {
     testImplementation("io.mockk:mockk:1.12.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
 
-
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
     androidTestImplementation("androidx.test.espresso:espresso-contrib:3.4.0")

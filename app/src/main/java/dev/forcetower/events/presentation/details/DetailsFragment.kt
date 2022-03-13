@@ -19,7 +19,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.forcetower.events.R
 import dev.forcetower.events.databinding.FragmentDetailsBinding
 import dev.forcetower.events.tooling.lifecycle.EventObserver
-import timber.log.Timber
 import javax.inject.Inject
 
 private const val CLIPBOARD_SHARE_LABEL = "events:share:details"
@@ -78,7 +77,7 @@ class DetailsFragment : Fragment() {
         viewModel.onRefreshFailed.observe(
             viewLifecycleOwner,
             EventObserver {
-                Log.d("TAGGED","Triggered...")
+                Log.d("TAGGED", "Triggered...")
                 Snackbar.make(
                     binding.root,
                     R.string.events_details_failed_to_refresh,

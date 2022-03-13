@@ -1,6 +1,5 @@
 package dev.forcetower.events.tooling
 
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -29,7 +28,7 @@ fun waitForId(
         }
 
         override fun getDescription(): String {
-            return "wait for a specific view with id <$viewId> during $millis millis.";
+            return "wait for a specific view with id <$viewId> during $millis millis."
         }
 
         override fun perform(uiController: UiController, view: View) {
@@ -71,7 +70,7 @@ fun waitForItemCount(
         }
 
         override fun getDescription(): String {
-            return "wait for a recyclerview have item count <$itemCount> during $millis millis.";
+            return "wait for a recyclerview have item count <$itemCount> during $millis millis."
         }
 
         override fun perform(uiController: UiController, view: View) {

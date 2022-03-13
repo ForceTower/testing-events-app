@@ -253,10 +253,12 @@ class MainActivityTest {
         onView(withId(R.id.item_map))
             .perform(click())
 
-        intended(anyOf(
-            allOf(hasAction(Intent.ACTION_VIEW), hasData(Uri.parse("geo:${subject.latitude},${subject.longitude}"))),
-            allOf(hasAction(Intent.ACTION_VIEW), hasData(Uri.parse("http://maps.google.com/maps?daddr=${subject.latitude},${subject.longitude}"))),
-        ))
+        intended(
+            anyOf(
+                allOf(hasAction(Intent.ACTION_VIEW), hasData(Uri.parse("geo:${subject.latitude},${subject.longitude}"))),
+                allOf(hasAction(Intent.ACTION_VIEW), hasData(Uri.parse("http://maps.google.com/maps?daddr=${subject.latitude},${subject.longitude}"))),
+            )
+        )
     }
 
     @Test

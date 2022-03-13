@@ -47,7 +47,6 @@ class CheckInViewModelUnitTest : BaseUnitTest() {
     override val coroutineRule: CoroutinesMainTestRule
         get() = CoroutinesMainTestRule(StandardTestDispatcher(scheduler))
 
-
     @Before
     fun before() {
         checkInUseCase = mockk(relaxed = true)
