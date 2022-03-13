@@ -153,7 +153,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.4.2")
     kapt("androidx.room:room-compiler:2.4.2")
 
-    implementation("com.github.bumptech.glide:glide:4.13.0")
+    implementation("com.github.bumptech.glide:glide:4.13.1")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.arch.core:core-testing:2.1.0")
