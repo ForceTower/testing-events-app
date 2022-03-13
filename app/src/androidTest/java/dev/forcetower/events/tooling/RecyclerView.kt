@@ -2,11 +2,7 @@ package dev.forcetower.events.tooling
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.espresso.NoMatchingViewException
-import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.matcher.BoundedMatcher
-import androidx.test.espresso.matcher.ViewMatchers
-import org.hamcrest.CoreMatchers
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 
